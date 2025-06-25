@@ -1,0 +1,80 @@
+<odoo>
+    <record id="view_product_manual_category_tree" model="ir.ui.view">
+        <field name="name">view.product_manual_category.tree</field>
+        <field name="model">product.manual.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="website_ids" widget="many2many_tags"/>
+                <field name="category_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_manual_category_form" model="ir.ui.view">
+        <field name="name">view.product_manual_category.form</field>
+        <field name="model">product.manual.category</field>
+        <field name="arch" type="xml">
+            <form string="Product_manual_category">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="background_color" widget="color"/>
+                            <field name="border_color" widget="color"/>
+                        </group>
+                        <group>
+                            <field name="website_ids" widget="many2many_tags"/>
+                            <field name="category_id"/>
+                        </group>
+                    </group>
+                    <field name="product_ids" widget="many2many">
+                        <tree string="Products">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="list_price"/>
+                            <field name="default_code"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_manual_category_search" model="ir.ui.view">
+        <field name="name">view.product_manual_category.search</field>
+        <field name="model">product.manual.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_product_manual_category" model="ir.actions.act_window">
+        <field name="name">Product manual category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.manual.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Product manual category.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_product_manual_category"
+        name="Product Manual Categories"
+        parent="website_sale.menu_catalog"
+        action="action_product_manual_category"
+        sequence="2"/>
+</odoo>

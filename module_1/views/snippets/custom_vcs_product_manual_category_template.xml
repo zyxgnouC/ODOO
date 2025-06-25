@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template id="template">
+    <t t-name="custom_vcs_Product_manual.second_dynamic_product_manual">
+        <div class="product-manual-block">
+            <h3 class="product-manual-title"
+                t-att-style="'border-left-color: ' + border_color + ';background-color: ' + background_color">
+                <t t-esc="name"/>
+            </h3>
+            <div class="product-list">
+                <t t-foreach="products" t-as="product" t-key="product.id">
+                    <div class="product-item">
+                        <img t-att-src="product.image_url" alt="Product Image"/>
+                        <div class="product-info">
+                            <h4 class="product-name">
+                                <t t-esc="product.name"/>
+                            </h4>
+                            <div class="product-buttons">
+                                <a t-att-href="product.manual_link" class="btn btn-danger">
+                                    取扱説明書 <i class="fa fa-play" style="margin-left: 6px;"></i>
+                                </a>
+                                <a t-att-href="product.product_url" class="btn btn-outline-danger">
+                                    商品ページ <i class="fa fa-play" style="margin-left: 6px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divide"/>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>
