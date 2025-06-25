@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="product_snippets" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_effect']/t[@t-if='true'][last()]" position="after">
+            <t t-snippet="custom_vcs_Product_manual.s_manual_snippets"
+                t-thumbnail="/custom_vcs_Product_manual/static/src/img/manual.jpg"/>
+        </xpath>
+    </template>
+
+    <template id="s_manual_snippets" name="VCS Product Option Snippet">
+        <section class="s_manual_products_category_options" t-att-id="12345" t-att-data="datetime.datetime.now()">
+            <t t-call="custom_vcs_Product_manual.s_product_dynamic_template"/>
+        </section>
+    </template>
+
+    <template id="s_product_dynamic_template" name="manual snippet">
+        <div class="container product-manual-container">
+            please select the product manual category options
+        </div>
+    </template>
+
+    <template id="s_manual_products_category_options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="after">
+            <div data-js="SpecialManualProduct" data-selector=".s_manual_products_category_options">
+                <we-select string="Select Product Manual Category"
+                           data-name="special_product_manual_snippet"
+                           class="special_product_manual_snippet_class"
+                           data-select-item="true"
+                           data-attribute-name="SpecialProductManualTemplate"
+                           data-attribute-default-value="default">
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+</odoo>

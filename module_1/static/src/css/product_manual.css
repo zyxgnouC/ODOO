@@ -1,0 +1,46 @@
+/* Add your custom CSS rules here */
+.product-manual-block {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+.product-manual-title {
+    padding: 10px;
+    color: white;
+    margin-bottom: 15px;
+    border-left: 5px solid;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-item {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Adjust as needed */
+    padding: 10px 0;
+}
+.product-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.product-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-name {
+    margin: 0;
+    font-size: 1.1em;
+}
+.product-buttons .btn {
+    margin-left: 5px;
+}
+.divide {
+    border-top: 1px dashed #eee;
+    margin: 10px 0;
+}
